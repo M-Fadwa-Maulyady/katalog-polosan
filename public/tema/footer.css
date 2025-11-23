@@ -1,0 +1,64 @@
+/* FOOTER — MATCH EXACT DESIGN */
+.contact-footer {
+    width: 100%;
+    background: #c2bcbc;
+    padding: 50px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* LEFT TEXT */
+.footer-left h3 {
+    font-size: 22px;
+    margin: 0;
+}
+
+.footer-left h3 strong {
+    font-weight: 700;
+}
+
+.catalog-link {
+    font-size: 14px;
+    margin-top: 8px;
+    color: #333;
+}
+
+/* MIDDLE ICONS */
+.footer-icons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Hexagon Icon Box */
+.icon.hex {
+    width: 42px;
+    height: 42px;
+    background: white;
+    clip-path: polygon(
+        25% 0%, 
+        75% 0%, 
+        100% 50%, 
+        75% 100%, 
+        25% 100%, 
+        0% 50%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon.hex img {
+    width: 22px;
+    height: 22px;
+    opacity: 0.8;
+}
+
+/* RIGHT TEXT */
+.footer-right {
+    font-size: 13px;
+    color: #2f2f2f;
+    white-space: nowrap;
+}

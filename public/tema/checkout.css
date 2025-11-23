@@ -1,0 +1,92 @@
+/* General Reset & Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Navbar (Sama seperti halaman utama) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar nav { display: flex; gap: 30px; }
+.navbar a { text-decoration: none; color: inherit; font-size: 14px; font-weight: 500; letter-spacing: 1px; }
+.logo img { height: 25px; }
+
+/* Checkout Container */
+.checkout-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Product Details Section */
+.product-details {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.product-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    background-color: #f0f0f0;
+}
+
+.product-info h1 { font-size: 1.8rem; margin-bottom: 5px; }
+.product-info .variant { color: #666; margin-bottom: 15px; }
+.product-info .tag { background-color: #fffbe6; border: 1px solid #ffe58f; padding: 4px 8px; font-size: 0.8rem; font-weight: 500; border-radius: 4px; margin-bottom: 15px; display: inline-block; }
+.product-info .guarantee { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
+.product-info .guarantee .fas { color: #fadb14; }
+.product-info .price { font-size: 1.2rem; font-weight: 600; color: #d0021b; margin-bottom: 20px; }
+
+.shipping-info { display: flex; align-items: center; border: 1px solid #e0e0e0; padding: 10px; border-radius: 8px; gap: 15px; }
+.shipping-info .fas { font-size: 1.5rem; color: #555; }
+.shipping-text p { font-size: 0.9rem; }
+.shipping-text span { font-size: 0.8rem; color: #888; }
+.shipping-cost { margin-left: auto; font-weight: 600; font-size: 0.9rem; }
+
+/* Order Summary Section */
+.order-summary {
+    background-color: #f7f7f7;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+.order-summary h2 { font-size: 1.2rem; margin-bottom: 25px; }
+
+.summary-item { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.item-details .detail-label { font-size: 0.9rem; color: #666; margin-left: 2px; }
+.item-price { text-align: right; }
+.item-price .original-price { text-decoration: line-through; color: #999; font-size: 0.9rem; }
+.summary-item.total { font-size: 1.2rem; font-weight: 700; }
+
+.divider { border: 0; height: 1.5px; background-color: #e0e0e0; margin: 25px 0; }
+
+.payment-section { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 30px; }
+.payment-method h3 { font-size: 1rem; text-transform: uppercase; color: #555; letter-spacing: 1px; margin-bottom: 15px; }
+.payment-option { display: flex; align-items: center; background-color: #fff; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; }
+.qris-logo { height: 15px; }
+.payment-option input[type="radio"] { margin-left: 20px; transform: scale(1.2); }
+.qr-code img { width: 150px; height: 150px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-details { flex-direction: column; align-items: center; text-align: center; }
+    .shipping-info { justify-content: center; }
+    .shipping-cost { margin-left: 20px; }
+    .payment-section { flex-direction: column; gap: 30px; align-items: center; }
+}

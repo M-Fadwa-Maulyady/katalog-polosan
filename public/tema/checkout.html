@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary - Velora</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <nav class="nav-left">
+            <a href="index.html">HOME</a>
+            <a href="catalog.html">CATALOG</a>
+        </nav>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo Velora">
+        </div>
+        <nav class="nav-right">
+            <a href="login.html">ACCOUNT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <main class="checkout-container">
+        <section class="product-details">
+            <img src="img/checkout.png" alt="Black oversized t-shirt" class="product-image">
+            <div class="product-info">
+                <h1>Oversized tshirt</h1>
+                <p class="variant">black</p>
+                <span class="tag">PRE-ORDER</span>
+                <p class="guarantee"><i class="fas fa-shield-alt"></i> pengembalian dana gratis</p>
+                <p class="price">Rp80.000 - Rp100.000</p>
+                <div class="shipping-info">
+                    <i class="fas fa-truck"></i>
+                    <div class="shipping-text">
+                        <p>Tiba paling lambat pada <strong>13 - 18 Okt</strong></p>
+                        <span>Ekonomi</span>
+                    </div>
+                    <span class="shipping-cost">Rp10.000</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="order-summary">
+            <h2>Ringkasan pemesanan</h2>
+
+            <div class="summary-item">
+                <div class="item-details">
+                    <p><strong>subtotal produk</strong> <i class="fas fa-chevron-up"></i></p>
+                    <span class="detail-label">harga asli</span>
+                </div>
+                <div class="item-price">
+                    <p><strong>Rp85.000</strong></p>
+                    <span class="original-price">Rp90.000</span>
+                </div>
+            </div>
+
+            <div class="summary-item">
+                <div class="item-details">
+                    <p><strong>subtotal ongkir</strong> <i class="fas fa-chevron-down"></i></p>
+                    <span class="detail-label">biaya layanan pelanggan</span>
+                </div>
+                <div class="item-price">
+                    <p><strong>Rp10.000</strong></p>
+                    <span>Rp2.500</span>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="summary-item total">
+                <div class="item-details">
+                    <p>TOTAL</p>
+                </div>
+                <div class="item-price">
+                    <p>Rp97.500</p>
+                </div>
+            </div>
+
+            <div class="payment-section">
+                <div class="payment-method">
+                    <h3>metode pembayaran</h3>
+                    <label class="payment-option">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_QRIS_2020.svg/1200px-Logo_QRIS_2020.svg.png" alt="QRIS Logo" class="qris-logo">
+                        <input type="radio" name="payment" checked>
+                    </label>
+                </div>
+                <div class="qr-code">
+                    <img src="images/qris-payment.png" alt="QRIS Payment Code">
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+</html>

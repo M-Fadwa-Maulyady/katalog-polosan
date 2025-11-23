@@ -1,0 +1,197 @@
+ /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .main-header nav a {
+            margin: 0 15px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .logo-placeholder {
+            /* Placeholder for logo */
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            /* Ganti dengan tag <img> Anda */
+            /* content: url('path/to/your/logo.png'); */
+        }
+        
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .product-card {
+            background-color: #fff;
+            text-align: left;
+        }
+
+        .product-image-container {
+            position: relative;
+            background-color: #f5f5f5;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        
+        .product-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-badges {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .badge {
+            font-size: 10px;
+            padding: 3px 6px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .cart-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .cart-icon svg {
+             width: 16px;
+             height: 16px;
+        }
+        
+        .product-card h3 {
+            font-size: 16px;
+            margin: 0 0 5px 0;
+            font-weight: normal;
+        }
+
+        .product-card .price {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: #C8C3C0;
+            color: #555;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left h4 {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #555;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: #555;
+        }
+
+        .footer-right {
+            font-size: 12px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
