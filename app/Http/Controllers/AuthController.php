@@ -43,19 +43,27 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+        // VALIDASI
         $request->validate([
             'name'     => 'required|string|max:100',
             'email'    => 'required|email|unique:users,email',
-            'foto'    => 'required|image|mimes:png,jpg,jpeg|max:2048',
-            'alamat'   => 'required|string|max:255',
+            'foto'     => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+            'alamat'   => 'nullable|string|max:255',
             'no_telp'  => 'required|string|max:15',
             'password' => 'required|min:6|confirmed',
         ]);
 
+        // SIMPAN FOTO JIKA ADA
+        $fotoPath = null;
+        if ($request->hasFile('foto')) {
+            $fotoPath = $request->file('foto')->store('users', 'public');
+        }
+
+        // CREATE USER
         User::create([
             'name'     => $request->name,
             'email'    => $request->email,
-            'foto'    => $request->file('foto')->store('users','public'),
+            'foto'     => $fotoPath,  // boleh null
             'alamat'   => $request->alamat,
             'no_telp'  => $request->no_telp,
             'password' => Hash::make($request->password),

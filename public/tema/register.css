@@ -1,4 +1,6 @@
-/* General Reset & Body Styles */
+/* =========================================
+   GLOBAL RESET & BODY
+========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -9,65 +11,78 @@ html, body {
     height: 100%;
     font-family: 'Poppins', sans-serif;
     background-color: #f0f0f0;
+    overflow-x: hidden;   /* biar tidak geser kanan */
+    overflow-y: auto;     /* biar scroll normal */
 }
 
-/* Main Container */
+/* =========================================
+   MAIN CONTAINER
+========================================= */
 .login-container {
     display: flex;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-/* Image Panel (Left Side) */
+/* =========================================
+   LEFT IMAGE PANEL
+========================================= */
 .image-panel {
-    flex-basis: 50%;
+    flex: 1;
     background-image: url('./img/bg-contact.png');
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #4a4a4a;
 }
 
 .welcome-text h1 {
     font-family: 'Playfair Display', serif;
     font-size: 6rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.1;
     text-align: center;
+    color: #4a4a4a;
     letter-spacing: 5px;
 }
 
-/* Form Panel (Right Side) */
+/* =========================================
+   RIGHT FORM PANEL
+========================================= */
 .form-panel {
-    flex-basis: 50%;
+    flex: 1;
     background-color: #e0e0e0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 40px;
+    align-items: flex-start; /* MULAI DARI ATAS */
+    padding: 50px 40px;
 }
 
+/* FORM */
 form {
-    max-width: 350px;
     width: 100%;
+    max-width: 360px;
 }
 
+/* Title */
 form h2 {
     font-size: 2.5rem;
     font-weight: 600;
     color: #333;
     margin-bottom: 10px;
-    text-transform: lowercase; /* Membuat teks jadi huruf kecil */
-    letter-spacing: 1.5px; /* Memberi sedikit jarak antar huruf */
+    letter-spacing: 1.5px;
+    text-transform: lowercase;
 }
 
 form .subtitle {
     color: #888;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
+/* =========================================
+   INPUT GROUP
+========================================= */
 .input-group {
     margin-bottom: 20px;
 }
@@ -75,7 +90,7 @@ form .subtitle {
 .input-group label {
     display: block;
     font-size: 0.9rem;
-    color: #888;
+    color: #666;
     margin-bottom: 8px;
 }
 
@@ -86,7 +101,7 @@ form .subtitle {
     border-radius: 10px;
     background-color: #f0f0f0;
     font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
+    transition: 0.2s ease;
 }
 
 .input-group input:focus {
@@ -94,6 +109,9 @@ form .subtitle {
     border-color: #888;
 }
 
+/* =========================================
+   BUTTON
+========================================= */
 button[type="submit"] {
     width: 100%;
     padding: 15px;
@@ -104,44 +122,47 @@ button[type="submit"] {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     margin-top: 10px;
+    transition: 0.3s ease;
 }
 
 button[type="submit"]:hover {
     background-color: #5a6268;
 }
 
+/* =========================================
+   OPTIONS
+========================================= */
 .options {
-    display: flex;
-    align-items: center;
     margin-top: 20px;
     font-size: 0.9rem;
-    color: #888;
+    color: #666;
 }
 
-.options input[type="checkbox"] {
-    margin-right: 8px;
-    accent-color: #6c757d;
-}
-
-/* Responsive Design */
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
 @media (max-width: 768px) {
+
     .login-container {
         flex-direction: column;
+        min-height: 100vh;
     }
 
     .image-panel {
-        flex-basis: auto;
-        min-height: 200px;
+        height: 230px;
     }
 
     .welcome-text h1 {
-        font-size: 3rem;
+        font-size: 3.8rem;
     }
 
     .form-panel {
-        flex-basis: auto;
-        flex-grow: 1;
+        padding: 35px 25px;
+        align-items: flex-start;
+    }
+
+    form {
+        max-width: 100%;
     }
 }

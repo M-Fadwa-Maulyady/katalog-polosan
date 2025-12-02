@@ -7,10 +7,24 @@
     </div>
 
     <div class="footer-icons">
-        <div class="icon hex"><img src="{{ asset('tema/img/link.png') }}" alt="Link"></div>
-        <div class="icon hex"><img src="{{ asset('tema/img/ig.png') }}" alt="Instagram"></div>
-        <div class="icon hex"><img src="{{ asset('tema/img/wa.png') }}" alt="WhatsApp"></div>
-    </div>
+
+    <!-- Link Website -->
+    <a href="https://portofoliohanasta.netlify.app/" target="_blank" class="icon hex">
+        <img src="{{ asset('tema/img/link.png') }}" alt="Link">
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/fadwa4_/" target="_blank" class="icon hex">
+        <img src="{{ asset('tema/img/ig.png') }}" alt="Instagram">
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/6281328971485?text=Halo%20saya%20mau%20bertanya..." target="_blank" class="icon hex">
+        <img src="{{ asset('tema/img/wa.png') }}" alt="WhatsApp">
+    </a>
+
+</div>
+
 
     <div class="footer-right">
         © Copyright Velora Community. All rights reserved

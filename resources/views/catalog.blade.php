@@ -15,9 +15,12 @@
     border-radius: 22px;
     background: #fff;
     padding: 15px;
+    padding-bottom: 120px; /* 🟢 Fix harga tidak tertutup */
+    min-height: 480px;     /* 🟢 Agar card tidak kependekan */
     box-shadow: 0 8px 22px rgba(0,0,0,0.06);
     transition: .2s ease;
 }
+
 .product-card:hover {
     transform: translateY(-4px);
 }
@@ -42,17 +45,7 @@
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
-/* BUTTONS */
-.button-group {
-    position: absolute;
-    bottom: 18px;
-    left: 18px;
-    right: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* BUTTON */
 .icon-btn {
     width: 42px;
     height: 42px;
@@ -64,7 +57,6 @@
     justify-content: center;
     cursor: pointer;
 }
-
 .icon-btn i {
     font-size: 18px;
     color: #444;
@@ -74,7 +66,7 @@
 .product-name {
     font-size: 17px;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 18px;
 }
 
 .price-old {
@@ -82,13 +74,14 @@
     text-decoration: line-through;
     color: #b91c1c;
     font-weight: 500;
-    margin-top: 3px;
+    margin-top: 4px;
 }
 
 .price-new {
     font-size: 17px;
     color: #1f2937;
     font-weight: 600;
+    margin-top: 3px;
 }
 
 /* MODAL */
@@ -113,31 +106,12 @@
     position: relative;
     animation: fadeIn .3s ease;
 }
-
 .close-btn {
     position: absolute;
     top: 12px;
     right: 18px;
     font-size: 28px;
     cursor: pointer;
-}
-
-.modal-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.modal-harga {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.modal-desc {
-    margin-top: 10px;
-    color: #555;
 }
 
 @keyframes fadeIn {
@@ -155,13 +129,12 @@
 
     <div class="badge">Exclusive Product</div>
 
-    <img src="{{ asset('tema/img/produk/' . $item->gambar) }}" class="product-img">
+    <div class="img-wrapper" style="position:relative;">
+        <img src="{{ asset('tema/img/produk/' . $item->gambar) }}" class="product-img">
 
-    <!-- BUTTON GROUP -->
-    <div class="button-group">
-
-        <!-- DETAIL BUTTON PAKAI DATA ATTRIBUTE -->
+        <!-- DETAIL BUTTON -->
         <button class="icon-btn openDetail"
+            style="position:absolute; bottom:15px; left:15px;"
             data-nama="{{ $item->nama }}"
             data-gambar="{{ asset('tema/img/produk/' . $item->gambar) }}"
             data-harga="Rp {{ number_format($item->harga, 0, ',', '.') }}"
@@ -170,19 +143,24 @@
         </button>
 
         <!-- CART BUTTON -->
-        <button type="button" class="icon-btn goCheckout"
-        data-id="{{ $item->id }}">
-    <i class="fa-solid fa-cart-arrow-down"></i>
-</button>
-
+        <button class="icon-btn goCheckout"
+            style="position:absolute; bottom:15px; right:15px;"
+            data-id="{{ $item->id }}">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+        </button>
     </div>
 
     <div class="product-name">{{ $item->nama }}</div>
-    <div class="price-old">Rp {{ number_format($item->harga + 50000, 0, ',', '.') }}</div>
-    <div class="price-new">Rp {{ number_format($item->harga, 0, ',', '.') }}</div>
+
+    <div class="price-old">
+        Rp {{ number_format($item->harga + 50000, 0, ',', '.') }}
+    </div>
+
+    <div class="price-new">
+        Rp {{ number_format($item->harga, 0, ',', '.') }}
+    </div>
 
 </div>
-
 @endforeach
 
 </div>
@@ -190,14 +168,10 @@
 <!-- MODAL -->
 <div id="detailModal" class="modal">
     <div class="modal-content">
-
         <span class="close-btn" onclick="closeDetail()">×</span>
-
         <h2 id="detail-nama"></h2>
-
         <p id="detail-harga" class="modal-harga"></p>
         <p id="detail-deskripsi" class="modal-desc"></p>
-
     </div>
 </div>
 
@@ -206,7 +180,6 @@ function showDetail(nama, harga, deskripsi) {
     document.getElementById('detail-nama').innerText = nama;
     document.getElementById('detail-harga').innerText = harga;
     document.getElementById('detail-deskripsi').innerText = deskripsi;
-
     document.getElementById('detailModal').style.display = "flex";
 }
 
@@ -214,35 +187,23 @@ function closeDetail() {
     document.getElementById('detailModal').style.display = "none";
 }
 
-// EVENT LISTENER UNTUK BUKA DETAIL
 document.querySelectorAll('.openDetail').forEach(btn => {
     btn.addEventListener('click', function() {
-
-        const nama = this.dataset.nama;
-        const harga = this.dataset.harga;
-        const deskripsi = this.dataset.deskripsi;
-
-        // PANGGIL FUNGSI YANG UDAH ADA
-        showDetail(nama, harga, deskripsi);
+        showDetail(this.dataset.nama, this.dataset.harga, this.dataset.deskripsi);
     });
 });
 
 document.querySelectorAll('.goCheckout').forEach(btn => {
     btn.addEventListener('click', function () {
-
         const id = this.dataset.id;
 
-        // CEK USER LOGIN DARI LARAVEL
         @guest
-            // Jika belum login → arahkan ke login
             window.location.href = "{{ route('login') }}";
         @endguest
 
         @auth
-            // Jika sudah login → arahkan ke checkout produk
             window.location.href = "/checkout/" + id;
         @endauth
-
     });
 });
 </script>

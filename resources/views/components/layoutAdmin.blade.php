@@ -128,26 +128,38 @@
 <body>
 
     <!-- SIDEBAR -->
-    <div class="sidebar">
-        <h2>Admin Panel</h2>
+ <div class="sidebar">
+    <h2 class="sidebar-title">Admin Panel</h2>
 
-        <div class="side-menu">
-            <a href="{{ route('admin.dashboard') }}" 
-               class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-                <i class="fa-solid fa-house"></i> Dashboard
-            </a>
+    <div class="side-menu">
 
-            <a href="{{ route('admin.datacatalog.index') }}" 
-               class="{{ request()->routeIs('admin.datacatalog') ? 'active' : '' }}">
-                <i class="fa-solid fa-book"></i> Catalog
-            </a>
+        <a href="{{ route('admin.dashboard') }}"
+           class="side-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
 
-            <a href="{{ route('admin.dataAnggota') }}" 
-               class="{{ request()->routeIs('admin.dataAnggota') ? 'active' : '' }}">
-                <i class="fa-solid fa-user"></i> User
-            </a>
-        </div>
+        <a href="{{ route('admin.datacatalog.index') }}"
+           class="side-item {{ request()->routeIs('admin.datacatalog*') ? 'active' : '' }}">
+            <i class="fa-solid fa-book"></i>
+            <span>Catalog</span>
+        </a>
+
+        <a href="{{ route('admin.dataAnggota') }}"
+           class="side-item {{ request()->routeIs('admin.dataAnggota') ? 'active' : '' }}">
+            <i class="fa-solid fa-user"></i>
+            <span>User</span>
+        </a>
+
+        <a href="{{ route('admin.orders') }}"
+           class="side-item {{ request()->routeIs('admin.orders') ? 'active' : '' }}">
+            <i class="fa-solid fa-receipt"></i>
+            <span>Orders</span>
+        </a>
+
     </div>
+</div>
+
 
     <!-- MAIN -->
     <div class="main">

@@ -22,16 +22,13 @@
 </section>
 
 <section class="product-showcase">
-    <div class="product-card">
-        <img src="{{ asset('tema/img/produk1.jpg') }}" alt="White Tee">
-    </div>
-    <div class="product-card">
-        <img src="{{ asset('tema/img/produk3.jpg') }}" alt="Off-white hoodie">
-    </div>
-    <div class="product-card">
-        <img src="{{ asset('tema/img/produk4.jpg') }}" alt="Black Tee">
-    </div>
+    @foreach($produk_terbaru as $item)
+        <div class="product-card">
+            <img src="{{ asset('tema/img/produk/' . $item->gambar) }}" alt="{{ $item->nama }}">
+        </div>
+    @endforeach
 </section>
+
 
 <section class="hero-secondary">
     <div class="style-box">

@@ -53,6 +53,12 @@
                     <input type="text" id="no_telp" name="no_telp" value="{{ old('no_telp') }}" required>
                 </div>
 
+                <!-- EMAIL (WAJIB) -->
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+                </div>
+
                 <!-- PASSWORD -->
                 <div class="input-group">
                     <label for="password">Password</label>
